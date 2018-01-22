@@ -1,0 +1,56 @@
+___version___ = "1.0"
+___author___ = "Sebastian Bensing"
+
+repeat1 = True
+while repeat1:
+    print("Notenrechner\nDie Noten werden nach dem IHK-Schlüssel berechnet\n")
+
+    # Eingabe der maximalen Punktzahl
+    repeat2 = True
+    while repeat2:
+        maxpoints = input("Bitte geben sie die maximal zu erreichende Punktzahl ein:   ")
+        try:
+            if int(maxpoints) > 10:
+                repeat2 = False#
+            else:
+                print("Die eingegebene Zahl ist außerhalb des vorgegebenen Bereichs (muss groeßer 10)")
+        except:
+            print("Bei dem eingegebenen Wert handelt es sich um keine Zahl.\n")
+    # Eingabe der erreichten Punktzahl
+    repeat3 = True
+    while repeat3:
+        attainedpoints = input("Bitte geben sie die erreichte Punktzahl ein:   ")
+        try:
+            if int(attainedpoints) > 0 and int(attainedpoints) <= int(maxpoints):
+                repeat3 = False
+            else:
+                print("Die eingegebene Zahl ist außerhalb des vorgegebenen Bereichs (muss groeßer 0)\noder die erreichte Punktzahl ist größer der maximalen Punktzahl")
+        except:
+            print("Bei dem eingegebenen Wert handelt es sich um keine Zahl.\n")
+
+    # Berechnung
+
+    percent = int(attainedpoints)/int(maxpoints)*100
+
+    # Ausgabe der Note
+    print("\n")
+    if percent >= 92:
+        print("Die erreichte Note ist eine 1 mit "+str(percent)+"%, bei "+attainedpoints+" von "+maxpoints+" Punkten.")
+    elif percent >= 81:
+        print("Die erreichte Note ist eine 2 mit "+str(percent)+"%, bei "+attainedpoints+" von "+maxpoints+" Punkten.")
+    elif percent >= 67:
+        print("Die erreichte Note ist eine 3 mit "+str(percent)+"%, bei "+attainedpoints+" von "+maxpoints+" Punkten.")
+    elif percent >= 50:
+        print("Die erreichte Note ist eine 4 mit "+str(percent)+"%, bei "+attainedpoints+" von "+maxpoints+" Punkten.")
+    elif percent >= 30:
+        print("Die erreichte Note ist eine 5 mit "+str(percent)+"%, bei "+attainedpoints+" von "+maxpoints+" Punkten.")
+    else:
+        print("Die erreichte Note ist eine 6 mit "+str(percent)+"%, bei "+attainedpoints+" von "+maxpoints+" Punkten.")
+
+    print("\nEs wurde follgender IHK-Notenschlüssel angewendet:\n\nNote   ab\n1      92%\n2      81%\n3      67%\n4      50%\n5      30%")
+
+　
+    answer = input("\nWollen sie eine weitere Note berechnen? (j/n)")
+    if answer == "n":
+        repeat1 = False
+    print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
